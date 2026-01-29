@@ -10,7 +10,6 @@ body {
     justify-self: center;
     justify-content: space-between;
     align-items: center;
-    /* background-color: bl; */
     border-bottom: 1px solid gray;
     padding: 0 15px;
 }
@@ -26,8 +25,12 @@ body {
 }
 
 #img-shield:hover {
-    transform: rotate(360deg);
-    transition: transform 2s ease;
+    transform: rotate(180deg);
+    transition: transform 0.2s ease;
+    width: 22px;
+    height: 22px;
+    box-shadow: 1px 1px 10px 6px #00db3c;
+    border-radius: 30px;
 }
 
 #shield-icon {
@@ -58,12 +61,14 @@ body {
     height: 10px;
     background-color: #00db3c;
     border-radius: 50px;
+    animation: blink 1s linear infinite;
 }
 
-/* #flickering:first-child {
-    box-shadow: 5px 5px 5px #287a33;
-    transition: box-shadow 1s ease;
-} */
+@keyframes blink {
+    50% {
+        opacity: 0.3;
+    }
+}
 
 i {
     color: #00db3c;
@@ -82,6 +87,8 @@ i {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: minmax(0, auto);
     width: 80%;
+    overflow: hidden;
+    height: auto;
 
 }
 
@@ -216,7 +223,6 @@ i {
     border-radius: 30px;
     grid-row: span 1;
     grid-column: span 2;
-
     background-color: #140f1e;
     border: 1px solid #495b75;
 
@@ -231,7 +237,6 @@ i {
     border-radius: 30px;
     grid-row: span 1;
     grid-column: span 2;
-
     background-color: #140f1e;
     border: 1px solid #495b75;
 
@@ -240,73 +245,126 @@ i {
 #brief:hover,
 #decode:hover,
 #drone:hover {
-    border-color: 1px solid #00db3c;
-    background-color: #287a33;
-    transition: border-color 1s ease-in;
-    transition: background-color 1s ease-in;
+    border: 1px solid #00db3c;
+    box-shadow: inset 1px 1px 30px 1px #287a33;
+    transition: border 0.3s ease-in;
+    margin-bottom: 10px;
 }
 
 .information {
-    height: 4rem;
-    grid-column: 1/13;
+    margin-top: 15px;
+    grid-column: 1 / 13;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: minmax(0, auto);
     grid-template-rows: minmax(0, auto);
-    align-content: space-between;
-
+    background-color: #140f1e;
+    justify-content: space-between;
 }
 
+
 .note1 {
+    grid-column: 1/2;
     border: 1px solid gray;
     width: 150px;
-    height: 130px;
+    height: 110px;
     border-radius: 20px;
     color: #00db3c;
     width: 200px;
+    box-shadow: -4px 0 0 0 #17da51;
+    margin-left: 5px;
 }
 
 .note2 {
+    grid-column: 2/3;
     border: 1px solid gray;
     width: 150px;
-    height: 130px;
+    height: 110px;
     border-radius: 20px;
     color: #00db3c;
     width: 200px;
+    box-shadow: -4px 0 0 0 #d8a92a;
 }
 
 .note3 {
+    grid-column: 3/4;
     border: 1px solid gray;
     width: 150px;
-    height: 130px;
+    height: 110px;
     border-radius: 20px;
     color: #00db3c;
     width: 200px;
+    box-shadow: -4px 0 0 0 #17da51;
 }
 
 .note4 {
+    grid-column: 4/5;
     border: 1px solid gray;
     width: 150px;
-    height: 130px;
+    height: 110px;
     border-radius: 20px;
     color: #00db3c;
     width: 200px;
+    box-shadow: -4px 0 0 0 #d8a92a;
 }
 
-.delete-button {}
-
-.figure-footer{
-    height: 4rem;
-    grid-column: 1/13;
-    align-content: space-between;
-    display: flex; 
-    background-color: #0c0b0f;
-    justify-content: space-evenly;
-    color: white;
-
-
-
+.delete-button {
+    height: 40px;
+    margin-top: 15px;
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    border: 1px solid #58182c;
+    border-radius: 15px;
+    background-color: #230f19;
 }
-.figure-footer img{
+
+.delete-button:hover{
+    border: 5px solid #230f19;
+    border-radius: 15px;
+    background-color: #58182c;
+}
+
+.delete-button div {
+    width: 10px;
+    height: 10px;
+    grid-row: 2/3;
+    grid-column: 1/2;
+    justify-self: start;
+    margin-left: 20px;
+    background-color: #b02e50;
+    border-radius: 50px;
+}
+
+.delete-button span {
+    color: #b02e50;
+    /* font-family: ; */
+    grid-column: 5/8;
+    grid-row: 3/4;
+}
+
+.figure-footer {
+    margin-top: 15px;
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: minmax(0, auto);
+    grid-template-rows: minmax(0, auto);
+    border: 1px solid #495b75;
+    border-radius: 20px;
+    background-color: #140f1e;
+}
+
+
+
+
+.figure-footer img {
+    grid-row: 4/5;
+    align-items: center;
     width: 24px;
     height: 24px;
+}
+
+.figure-footer figcaption {
+    grid-row: 5/6;
+
 }
